@@ -1,0 +1,16 @@
+{
+  "name": "Reloader",
+  "version": "0.1",
+  "manifest_version": 2,
+  "browser_action": {
+    "default_icon": "refresh.svg"
+  },
+  "background": { "scripts": ["bg.js"] },
+  "content_scripts": [{
+    "matches": ["*://*/*"],
+    "js": [
+      "content.js"
+    ]
+  }],
+  "permissions": ["management"]
+}
