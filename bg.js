@@ -5,7 +5,7 @@ chrome.runtime.onInstalled.addListener(function () {
 });
 
 
-var id = "jmobogbdiffehohldkdeobajdenpcijb";
+var id = "jmobogbdiffehohldkdeobajdenpcijb";  // the id of the addon
 
 function reloadExtension() {
   chrome.management.setEnabled(id, false, function () {
@@ -17,6 +17,6 @@ chrome.browserAction.onClicked.addListener(function (tab) {
   reloadExtension();
   chrome.tabs.sendMessage(
     tab.id,
-    { event: "reloadPage" }  // messages
+    { event: "reloadPage" }
   );
 });
