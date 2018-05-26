@@ -15,8 +15,20 @@ function reloadExtension() {
 
 chrome.browserAction.onClicked.addListener(function (tab) {
   reloadExtension();
-  chrome.tabs.sendMessage(
-    tab.id,
-    { event: "reloadPage" }
-  );
 });
+
+chrome.commands.onCommand.addListener(function (command) {
+  if (command == "double-refresh") {
+    reloadExtension();
+    chrome.tabs.query(
+      { currentWindow: true, active: true },
+      function (tabArray) {
+        chrome.tabs.sendMessage(
+          tabArray[0].id,
+          { event: "reloadPage" }
+        );
+      }
+    );
+  }
+});
+

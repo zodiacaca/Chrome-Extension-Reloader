@@ -5,6 +5,15 @@
   "browser_action": {
     "default_icon": "refresh.svg"
   },
+  "commands": {
+    "double-refresh": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+R",
+        "mac": "Command+Shift+R"
+      },
+      "description": "Refresh addon and page"
+    }
+  },
   "background": { "scripts": ["bg.js"] },
   "content_scripts": [{
     "matches": ["*://*/*"],
